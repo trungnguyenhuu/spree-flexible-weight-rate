@@ -3,13 +3,13 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_flexible_weight_rate'
   s.version     = '1.3.2'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
-  s.required_ruby_version = '>= 1.8.7'
+  s.summary     = 'A flexible weight rate calculator'
+  s.description = 'This allows us to specify a base cost for an item, and an additional cost for weighing a certain amount'
+  s.required_ruby_version = '>= 1.9.3'
 
-  # s.author    = 'You'
-  # s.email     = 'you@example.com'
-  # s.homepage  = 'http://www.spreecommerce.com'
+  s.author    = 'FreeRunning Technologies'
+  s.email     = 'contact@freerunningtechnologies.com'
+  s.homepage  = 'http://www.freerunningtechnologies.com'
 
   #s.files       = `git ls-files`.split("\n")
   #s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
