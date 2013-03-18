@@ -1,9 +1,11 @@
 module Spree
   class Calculator::FlexibleWeightRate < Calculator
-    preference :first_500g,      :decimal, :default => 0.0
-    preference :additional_500g, :decimal, :default => 0.0
+    preference :initial,      :decimal, :default => 0.0
+    preference :cost_per_weight, :decimal, :default => 0.0
+    preference :weight, :decimal, :default => 0.0
+    preference :currency, :string, :default => Spree::Config[:currency]
 
-    attr_accessible :preferred_first_500g, :preferred_additional_500g
+    attr_accessible :preferred_initial, :preferred_cost_per_weight, :preferred_weight, :preferred_currency
 
     def self.description
       "Flexible Weight Rate"
@@ -14,15 +16,15 @@ module Spree
     end
 
     def compute(object)
-      preferred_first_500g + additional_cost(object)
+      preferred_initial + additional_cost(object)
     end
 
     private
     def additional_cost(object)
-      weight = object.total_weight || 1
-      additionals = (weight / 500).to_i
-      additionals -= 1 if (weight % 500 == 0)
-      preferred_additional_500g * additionals
+      shipment_weight = object.total_weight || 1
+      additionals = (shipment_weight / preferred_weight).to_i
+      additionals -= 1 if (shipment_weight % preferred_weight == 0)
+      preferred_cost_per_weight * additionals
     end
   end
 end

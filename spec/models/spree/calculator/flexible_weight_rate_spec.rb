@@ -3,8 +3,9 @@ require 'spec_helper'
 describe Spree::Calculator::FlexibleWeightRate do
   let(:calculator) do
     Spree::Calculator::FlexibleWeightRate.new do |f|
-      f.preferred_first_500g = 4.55
-      f.preferred_additional_500g = 1.25
+      f.preferred_initial = 4.55
+      f.preferred_cost_per_weight = 1.25
+      f.preferred_weight = 500
     end
   end
 
