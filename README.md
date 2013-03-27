@@ -23,11 +23,10 @@ Add a new shipping method in spree through the admin interface.
 
 Specify the following options:
 
-Initial: The cost of up to (and including) the weight specified (10)
-Cost per weight: The additional cost for every weight increment (2)
-Weight: The amount for each threshold (100)
-Currency: The currency to be billed in.  This must match the order currency.
-
+* Initial: The cost of up to (and including) the weight specified (10)
+* Cost per weight: The additional cost for every weight increment (2)
+* Weight: The amount for each threshold (100)
+* Currency: The currency to be billed in.  This must match the order currency.
 
 Note that Spree doesn't provide a unit for weight, and you should choose a unit and
 remain consistent in its usage throughout the application.
