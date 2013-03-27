@@ -1,13 +1,36 @@
 SpreeFlexibleWeightRate
 =======================
 
-Introduction goes here.
+This designed to add weight based shipping to Spree.  This provides a simple flexible weight
+calculator using the following system.  It's designed for shipping methods which have the
+following characteristics
+
+The first X weight costs Y amount, each additional X weight costs Z amount.
 
 
 Example
 =======
 
-Example goes here.
+We have a shipping provider which offers the following rates:
+
+The first 100g costs $10, each additional 100g costs $2.
+
+In this case, an item weighing 300g would cost $14 to ship.
+
+
+
+Add a new shipping method in spree through the admin interface.
+
+Specify the following options:
+
+Initial: The cost of up to (and including) the weight specified (10)
+Cost per weight: The additional cost for every weight increment (2)
+Weight: The amount for each threshold (100)
+Currency: The currency to be billed in.  This must match the order currency.
+
+
+Note that Spree doesn't provide a unit for weight, and you should choose a unit and
+remain consistent in its usage throughout the application.
 
 Testing
 -------
